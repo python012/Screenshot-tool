@@ -20,7 +20,11 @@ public class Replacer {
         if (wOfNewScreen != statusBarImage.getWidth() || hOfStatusBar >= hOfScreenshot) {
 
             // 状态栏图和待修改图screenshot的宽必须相同，同时状态栏图的高不应大于screenshot
+<<<<<<< Updated upstream
             throw new IllegalArgumentException("The two images don't have same wight or status bar image has longer height!!");
+=======
+            throw new IllegalArgumentException("The two images don't have same width or status bar image has longer height!!");
+>>>>>>> Stashed changes
         }
     }
 
