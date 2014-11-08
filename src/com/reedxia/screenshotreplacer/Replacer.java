@@ -18,13 +18,8 @@ public class Replacer {
         hOfScreenshot = screenshot.getHeight(); // 合并后新图的高
 
         if (wOfNewScreen != statusBarImage.getWidth() || hOfStatusBar >= hOfScreenshot) {
-
             // 状态栏图和待修改图screenshot的宽必须相同，同时状态栏图的高不应大于screenshot
-<<<<<<< Updated upstream
-            throw new IllegalArgumentException("The two images don't have same wight or status bar image has longer height!!");
-=======
             throw new IllegalArgumentException("The two images don't have same width or status bar image has longer height!!");
->>>>>>> Stashed changes
         }
     }
 
@@ -81,7 +76,6 @@ public class Replacer {
             System.out.println(hOfStatusBar);
             // 设置新图的下半部分的RGB数据
             newScreenshot.setRGB(0, hOfStatusBar, wOfNewScreen, hOfScreenshot - hOfStatusBar, this.getBottomPartRGBArray(), 0, wOfNewScreen);
-            // 
             ImageIO.write(newScreenshot, "png", newScreenshotFile);
         } catch (Exception e) {
             e.printStackTrace();
@@ -90,10 +84,9 @@ public class Replacer {
 
     public static void main(String[] args) throws IOException {
 
-        File fileOne = new File("/Users/reed/Desktop/small.png");
-        File fileTwo = new File("/Users/reed/Desktop/big.png");
-        Replacer replacer = new Replacer(ImageIO.read(fileOne), ImageIO.read(fileTwo));
-
+        File statusBarImage = new File("/Users/reed/Desktop/small.png"); // 已经修改好的状态栏图片
+        File screenshot = new File("/Users/reed/Desktop/big.png"); // 待修改的完整图片
+        Replacer replacer = new Replacer(ImageIO.read(statusBarImage), ImageIO.read(screenshot));
         replacer.outputNewScreen(new File("/Users/reed/Desktop/out.png"));
     }
 }
