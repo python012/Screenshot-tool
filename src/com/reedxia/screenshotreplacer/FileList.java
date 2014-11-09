@@ -6,18 +6,18 @@ import java.util.List;
 
 public class FileList {
     
-    // FileList类将帮忙寻找指定路径下所有的PNG文件，并可生成列表 － List<File>
+    // FileList类可寻找指定路径下所有的PNG文件，并生成列表 － List<File>
 
-    public static void main(String[] args) {
-        FileList a = new FileList(new File("/Users/reed/Desktop"));
-        for (File x : a.getPNGList()) {
-            System.out.println(x.getAbsolutePath());
-            System.out.println(x.getParent());
-            System.out.println(x.getName());
-            System.out.println("----------------------");
-
-        }
-    }
+//    public static void main(String[] args) {
+//        FileList a = new FileList(new File("/Users/reed/Desktop"));
+//        for (File x : a.getPNGList()) {
+//            System.out.println(x.getAbsolutePath());
+//            System.out.println(x.getParent());
+//            System.out.println(x.getName());
+//            System.out.println("----------------------");
+//
+//        }
+//    }
 
     FileList(File path) {
         // 构造方法，参数是一个类型为File的参数，必须是一个有效的的目录的绝对路径，否则将抛出异常IllegalArgumentException
@@ -26,7 +26,6 @@ public class FileList {
         } else {
             throw new IllegalArgumentException("The given path is not absolute directory!!");
         }
-        
         pngFileList = new ArrayList<File>(); // 初始化png文件列表
     }
 
@@ -45,20 +44,14 @@ public class FileList {
         File[] fileListInDir = absolutePath.listFiles(); //，用以保存指定路径下所有文件&目录列表，注意目录也是File类型
 
         for (int i = 0; i < fileListInDir.length; i++) {
-
             if (fileListInDir[i].isFile()) {
-
                 if (fileListInDir[i].getAbsolutePath().endsWith(".png")) {
-                    
-//                    System.out.println(fileListInDir[i].getAbsolutePath());
                     this.pngFileList.add(fileListInDir[i]);
                 }
             } else {
-
                 this.fillPNGList(fileListInDir[i]);
             }
         }
         fileListInDir = null; // 此时该临时文件列表已完成使用
-        
     }
 }

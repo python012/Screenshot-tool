@@ -9,7 +9,7 @@ public class Replacer {
 
     Replacer(File statusBarImageFile, File screenshotImageFile) {
         
-        System.out.println("## Replacer is working on - " + screenshotImageFile.getAbsolutePath());
+        System.out.println("## Working on - " + screenshotImageFile.getAbsolutePath());
         
         // 如果参数的文件名不是.png文件结尾，将抛出参数错误异常
         if (!statusBarImageFile.getAbsolutePath().endsWith(".png") || !screenshotImageFile.getAbsolutePath().endsWith(".png")) {
@@ -36,7 +36,6 @@ public class Replacer {
         
         // 构造合并后的新图的绝对路径，同时给文件名加上前缀 "new_"
         abosolutePathOfNewScreen = screenshotImageFile.getParent() + "/" + "new_" + screenshotImageFile.getName();
-
     }
 
     private int wOfNewScreen; // 合并后新图的宽
@@ -97,13 +96,5 @@ public class Replacer {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-
-    public static void main(String[] args) throws IOException {
-
-        File statusBarImageFile = new File("/Users/reed/Desktop/small.png"); // 已经修改好的状态栏图片
-        File screenshotFile = new File("/Users/reed/Desktop/big.png"); // 待修改的完整图片
-        Replacer replacer = new Replacer(statusBarImageFile, screenshotFile);
-        replacer.outputNewScreen();
     }
 }
