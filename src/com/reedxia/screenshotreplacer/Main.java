@@ -1,3 +1,10 @@
+/*
+ * 
+ *  Screenshot tool v1.0
+ * 
+ */
+
+
 package com.reedxia.screenshotreplacer;
 
 import java.io.File;
