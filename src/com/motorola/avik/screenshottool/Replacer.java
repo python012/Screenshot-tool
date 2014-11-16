@@ -1,4 +1,4 @@
-package com.reedxia.screenshotreplacer;
+package com.motorola.avik.screenshottool;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -7,14 +7,14 @@ import javax.imageio.ImageIO;
 
 public class Replacer {
 
-    Replacer(File statusBarImageFile, File screenshotImageFile) {
+    Replacer(File statusBarImageFile, File screenshotImageFile, int count, String fileNameSuffix) {
         
-        System.out.println("## Working on - " + screenshotImageFile.getAbsolutePath());
+        System.out.println("## Working on file#" + Integer.toString(count) + " - " + screenshotImageFile.getAbsolutePath());
         
         // 如果参数的文件名不是.png文件结尾，将抛出参数错误异常
-        if (!statusBarImageFile.getAbsolutePath().endsWith(".png") || !screenshotImageFile.getAbsolutePath().endsWith(".png")) {
-            throw new IllegalArgumentException("The given files are not .png file!");
-        }
+//        if (!statusBarImageFile.getAbsolutePath().endsWith(".png") || !screenshotImageFile.getAbsolutePath().endsWith(".png")) {
+//            throw new IllegalArgumentException("The given files are not .png file!");
+//        }
         
         // 构造方法，需要两个image
         try {
@@ -36,6 +36,7 @@ public class Replacer {
         
         // 构造合并后的新图的绝对路径，同时给文件名加上前缀 "new_"
         abosolutePathOfNewScreen = screenshotImageFile.getParent() + "/" + "new_" + screenshotImageFile.getName();
+        this.fileNameSuffix = fileNameSuffix;
     }
 
     private int wOfNewScreen; // 合并后新图的宽
@@ -45,6 +46,8 @@ public class Replacer {
     // 初始化Replacer类的实例所必需的两个参数，分别为一个小图（状态栏图）和一个大图
     private BufferedImage statusBarImage;
     private BufferedImage screenshot;
+    
+    private String fileNameSuffix;
     
     private String abosolutePathOfNewScreen;
 
@@ -92,7 +95,7 @@ public class Replacer {
             // 设置新图的下半部分的RGB数据
             newScreenshot.setRGB(0, hOfStatusBar, wOfNewScreen, hOfScreenshot - hOfStatusBar, this.getBottomPartRGBArray(), 0, wOfNewScreen);
             
-            ImageIO.write(newScreenshot, "png", new File(abosolutePathOfNewScreen));
+            ImageIO.write(newScreenshot, this.fileNameSuffix, new File(abosolutePathOfNewScreen));
         } catch (Exception e) {
             e.printStackTrace();
         }
