@@ -1,10 +1,10 @@
 Screenshot-tool
 ===============
 
-This java program is the tool help modify muti screenshots. Following functions are added:
+This Java program is the tool help modify screenshots. Following functions are added:
 
 * Use one picture(status bar) to replace other screenshots image files.
-* Transfer the image formate to 24bit.
+* Transfer the image format to 24bit.
 
 这是工作中用来修改图片的一个小工具，它有如下功能(还在继续改进和添加新功能): 
 
