@@ -1,4 +1,4 @@
-package com.motorola.avik.screenshottool;
+package com.python012.screenshottool;
 
 import java.io.File;
 import java.util.ArrayList;
