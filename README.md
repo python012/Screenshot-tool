@@ -2,8 +2,6 @@ Screenshot-tool
 ===============
 
 This Java application can help merge two images with same width.
-
 Someday you have lots of picture files(screenshot) you took in your phone, and you want to modify the status bar area, later you want to apply the change on all of your screenshots, then you can use this tool.
 
-
-这是一个个人工作中的小工具，因为需要修改很多很多手机截图的状态栏部分，目的是让状态栏部分变成一致，所以可以用到这个工具，我会先把所需的状态栏图片修改好另存起来，然后将该图片与其他待修改图片作为参数传入该Java程序。
+这是工作中用来修改图片的一个小工具，它有如下功能(还在继续改进和添加新功能): 1. 寻找指定后缀名的图片文件，用指定的图片去部分替代这些图片，可解为应用一致的修改 2. 将图片格式转化为24bit
