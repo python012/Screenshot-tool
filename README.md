@@ -1,6 +1,9 @@
 Screenshot-tool
 ===============
 
+test
+
+
 This Java program is the tool help modify screenshots. Following functions are added:
 
 * Use one picture(status bar) to replace other screenshots image files.
